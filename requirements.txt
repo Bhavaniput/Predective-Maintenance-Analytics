@@ -1,0 +1,40 @@
+# PINNED, not >=, on purpose. The saved model (models/predictive_maintenance_model.pkl)
+# is a pickled scikit-learn Pipeline, and scikit-learn/joblib pickles are only
+# guaranteed to load back with the SAME major.minor version that created them
+# (this is scikit-learn's own compatibility policy, not a bug). A loose ">="
+# range lets pip install a newer scikit-learn than the one that built the
+# pickle, which is exactly what caused a real error seen while building this
+# project: "ModuleNotFoundError: No module named '_loss'" when loading the
+# pickle under a mismatched scikit-learn version.
+#
+# These exact versions are what actually built and verified the current
+# models/predictive_maintenance_model.pkl in this environment. If you ever
+# see a version-mismatch error when loading the model, the reliable fix is:
+#   cd notebooks && python train_pipeline.py && python validate_explain_finalize.py
+# which retrains and re-saves the pickle using whatever versions are
+# installed in YOUR environment, instead of the ones listed here.
+pandas==3.0.5
+numpy==2.5.3
+matplotlib==3.11.2
+seaborn==0.13.2
+scikit-learn==1.9.1
+joblib==1.6.0
+streamlit>=1.28
+
+# Explainability (Step 11). The app and notebook both work WITHOUT these -
+# they fall back automatically to a tested permutation-based local/global
+# explanation (see common/explainability.py) if shap is not installed.
+# Install shap for the preferred, model-agnostic SHAP explanations. Left
+# unpinned since it does not affect the saved pipeline's compatibility.
+shap>=0.44
+
+# Optional: if you prefer to swap in real XGBoost instead of
+# sklearn's HistGradientBoostingClassifier, install this and update
+# notebooks/train_pipeline.py / the notebook accordingly.
+# xgboost>=2.0
+
+# Optional: LIME is referenced as an alternative explainability library in
+# the project brief. This project implements SHAP + a tested permutation
+# fallback instead (see common/explainability.py docstring for why); add
+# lime here only if you choose to build a LIME-based explainer yourself.
+# lime>=0.2

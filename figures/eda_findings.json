@@ -1,0 +1,13 @@
+{
+  "findings": [
+    "Failed machines show higher average torque (50.2 vs 39.6 Nm).",
+    "Failed machines show higher average tool wear (143.8 vs 106.7 min).",
+    "Failed machines show slightly higher process temperature (310.3 vs 310.0 K).",
+    "Failure rate by Type ranges 2.09%-3.92%."
+  ],
+  "failure_rate_by_type": {
+    "L": 3.916666666666667,
+    "M": 2.7694361027694363,
+    "H": 2.0937188434695915
+  }
+}

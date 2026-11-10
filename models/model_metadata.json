@@ -1,0 +1,113 @@
+{
+  "best_model_name": "Gradient Boosting (HistGB)",
+  "numerical_cols_raw": [
+    "Air temperature [K]",
+    "Process temperature [K]",
+    "Rotational speed [rpm]",
+    "Torque [Nm]",
+    "Tool wear [min]"
+  ],
+  "engineered_numerical_cols": [
+    "Air temperature [K]",
+    "Process temperature [K]",
+    "Rotational speed [rpm]",
+    "Torque [Nm]",
+    "Tool wear [min]",
+    "Temp_diff_K",
+    "Mechanical_power_W",
+    "ToolWear_x_Torque"
+  ],
+  "categorical_cols": [
+    "Type"
+  ],
+  "feature_order": [
+    "Air temperature [K]",
+    "Process temperature [K]",
+    "Rotational speed [rpm]",
+    "Torque [Nm]",
+    "Tool wear [min]",
+    "Temp_diff_K",
+    "Mechanical_power_W",
+    "ToolWear_x_Torque",
+    "Type"
+  ],
+  "target_col": "Machine failure",
+  "random_state": 42,
+  "cv_stability": {
+    "Logistic Regression": {
+      "recall": {
+        "mean": 0.8414814814814815,
+        "std": 0.04556609333105096
+      },
+      "precision": {
+        "mean": 0.16184192279659942,
+        "std": 0.0076478505460943124
+      },
+      "f1": {
+        "mean": 0.2712825790744975,
+        "std": 0.010912238231543126
+      },
+      "roc_auc": {
+        "mean": 0.9233202383929221,
+        "std": 0.013190419049585799
+      }
+    },
+    "Random Forest": {
+      "recall": {
+        "mean": 0.8154882154882154,
+        "std": 0.04830916543564582
+      },
+      "precision": {
+        "mean": 0.9090453551851729,
+        "std": 0.012697150690118057
+      },
+      "f1": {
+        "mean": 0.8592311197727994,
+        "std": 0.03177498282070577
+      },
+      "roc_auc": {
+        "mean": 0.9757952992287384,
+        "std": 0.016315315251941874
+      }
+    },
+    "Gradient Boosting (HistGB)": {
+      "recall": {
+        "mean": 0.8227609427609428,
+        "std": 0.03063388407607446
+      },
+      "precision": {
+        "mean": 0.895331575692478,
+        "std": 0.04349982576810158
+      },
+      "f1": {
+        "mean": 0.8562760055478502,
+        "std": 0.018056827008753856
+      },
+      "roc_auc": {
+        "mean": 0.9723719923204971,
+        "std": 0.009329943638225436
+      }
+    }
+  },
+  "selected_threshold": 0.85,
+  "risk_bands": {
+    "low_max": 0.3,
+    "high_min": 0.85
+  },
+  "test_metrics_selected_threshold": {
+    "precision": 0.9827586206896551,
+    "recall": 0.8382352941176471,
+    "f1": 0.9047619047619048,
+    "roc_auc": 0.9786947387650713
+  },
+  "global_explainability_method": "permutation",
+  "shap_available_at_build_time": false,
+  "reference_values": {
+    "Air temperature [K]": 300.1,
+    "Process temperature [K]": 310.1,
+    "Rotational speed [rpm]": 1503.0,
+    "Torque [Nm]": 40.1,
+    "Tool wear [min]": 107.0,
+    "Type": "L"
+  }
+}
